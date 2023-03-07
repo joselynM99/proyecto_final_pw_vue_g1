@@ -1,8 +1,8 @@
-<template >
-  <h1>Reservar Vehiculo: </h1>
-  <div>
+<template>
+  <div class="container">
+    <h1>Reservar Vehiculo:</h1>
     <div class="form-floating mb-3">
-      <input v-model="placa" class="form-control" type="text" placeholder="Placa del vehiculo" />
+      <input v-model="placa" class="form-control" type="text" placeholder="vehiculo" />
       <label>Placa: </label>
     </div>
     <div class="form-floating mb-3">
@@ -10,31 +10,83 @@
       <label>Cédula: </label>
     </div>
     <div class="form-floating mb-3">
-      <input v-model="fechaInicio" class="form-control" type="datetime-local" placeholder="Fecha inicio de la reserva" />
+      <input v-model="fechaInicio" class="form-control" type="date" placeholder="ini" />
       <label>Fecha inicio reserva: </label>
     </div>
     <div class="form-floating mb-3">
-      <input v-model="fechaFinal" class="form-control" type="datetime-local" placeholder="Fecha final de la reserva" />
+      <input v-model="fechaFinal" class="form-control" type="date" placeholder="final" />
       <label>Fecha fin reserva: </label>
     </div>
-    <button class="btn btn-primary" type="submit" v-on:click="reservar">Buscar</button>
+    <button class="btn btn-primary" type="submit" v-on:click="revisarDisponibilidad">
+      Buscar
+    </button>
+    <Mensaje :tipoAlerta="tipoAlerta" :mensaje="mensaje"> </Mensaje>
+
+    <div v-if="tipoAlerta == 'success'">
+      <div class="form-floating mb-3">
+        <input v-model="valorTotal" class="form-control" type="text" placeholder="total" />
+        <label>Valor Total $: </label>
+      </div>
+      <div class="form-floating mb-3">
+        <input v-model="tarjeta" class="form-control" type="text" placeholder="tarjeta" />
+        <label>Número de tarjeta: </label>
+      </div>
+      <button class="btn btn-primary" type="submit" v-on:click="reservar">
+        Reservar
+      </button>
+    </div>
   </div>
 </template>
 <script>
+import Mensaje from "@/components/Mensaje.vue";
+import { reservarFachada } from "@/js/api_reservas/procesarReserva";
+import { revisarDisponibilidadFachada } from "@/js/api_reservas/procesarVehiculo";
 export default {
   data() {
     return {
       placa: null,
       cedula: null,
       fechaInicio: null,
-      fechaFinal: null
-    }
+      fechaFinal: null,
+      valorTotal: null,
+      tipoAlerta: null,
+      mensaje: null,
+      tarjeta: null,
+    };
   },
   methods: {
     reservar() {
-
-    }
+      const body = {
+        placa: this.placa,
+        cedula: this.cedula,
+        fechaInicio: this.fechaInicio,
+        fechaFinal: this.fechaFinal,
+        tarjeta: this.tarjeta,
+      };
+      reservarFachada(body);
+    },
+    async revisarDisponibilidad() {
+      const data = await revisarDisponibilidadFachada(
+        this.placa,
+        this.fechaInicio,
+        this.fechaFinal
+      );
+      this.mostrarMensaje(data.estado);
+      this.valorTotal = data.valorTotalPagar;
+    },
+    mostrarMensaje(tmp) {
+      if (tmp == "D") {
+        this.tipoAlerta = "success";
+        this.mensaje = "Vehiculo disponible!! ";
+      } else {
+        this.tipoAlerta = "danger";
+        this.mensaje = "Vehiculo NO disponible!! ";
+      }
+    },
   },
-}
+  components: { Mensaje },
+};
 </script>
-<style ></style>
+<style >
+
+</style>

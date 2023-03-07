@@ -45,7 +45,7 @@ import {
   buscarVehiculoPorMarcaModeloFachada,
   obtenerTodasMarcasFachada,
   obtenerTodosModelosFachada,
-} from "@/js/procesarVehiculo";
+} from "@/js/api_reservas/procesarVehiculo";
 
 export default {
   data() {
@@ -79,9 +79,11 @@ export default {
   display: grid;
   grid-template-columns: auto auto auto;
 }
+
 .encabezado div {
   margin: 10px 50px;
 }
+
 button {
   margin-top: 10px;
   width: 100px;
