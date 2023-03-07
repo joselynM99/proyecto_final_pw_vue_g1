@@ -34,6 +34,8 @@
       <button class="btn btn-primary" type="submit" v-on:click="reservar">
         Reservar
       </button>
+      <Mensaje v-if="msg" :tipoAlerta="msg.tipoAlerta" :mensaje="msg.mensaje" :mensajeAdicional="msg.adicional">
+      </Mensaje>
     </div>
   </div>
 </template>
@@ -51,11 +53,12 @@ export default {
       valorTotal: null,
       tipoAlerta: null,
       mensaje: null,
+      msg: null,
       tarjeta: null,
     };
   },
   methods: {
-    reservar() {
+    async reservar() {
       const body = {
         placa: this.placa,
         cedula: this.cedula,
@@ -63,7 +66,7 @@ export default {
         fechaFinal: this.fechaFinal,
         tarjeta: this.tarjeta,
       };
-      reservarFachada(body);
+      this.msg = await reservarFachada(body);
     },
     async revisarDisponibilidad() {
       const data = await revisarDisponibilidadFachada(
@@ -87,6 +90,4 @@ export default {
   components: { Mensaje },
 };
 </script>
-<style >
-
-</style>
+<style ></style>
