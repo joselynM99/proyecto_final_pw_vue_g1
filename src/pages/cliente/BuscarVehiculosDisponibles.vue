@@ -4,7 +4,7 @@
     <div class="encabezado">
       <div class="form-floating mb-3">
         <select class="form-select" v-model="marca">
-          <option v-for="item in listMarcas" v-bind:value="item">{{ item }}</option>
+          <option v-for="item in listMarcas" v-bind:key="item">{{ item }}</option>
         </select>
         <label>Seleccione una Marca: </label>
       </div>
