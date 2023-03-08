@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import { buscarClientePorIdFachada } from "@/js/gestorEmpleado";
+import { buscarClientePorIdFachada } from "@/js/api_reservas/ProcesarEmpleado";
 export default {
   data() {
     return {

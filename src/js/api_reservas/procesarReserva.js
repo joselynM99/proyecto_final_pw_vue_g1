@@ -6,7 +6,7 @@ export const reservarFachada = async (body) => {
 
 const reservar = async (body) => {
    try {
-      const response = await axios.post(`http://localhost:8081/API/Reservas/V1/reservas`, body);
+      const response = await axios.post(`http://localhost:8081/API/Reservas/V1/clientes/reservas`, body);
       return {
          tipoAlerta: "success", mensaje: `Numero de Reserva: ${response.data.numeroReserva} `, adicional: "Se registro de manera exitosa la reserva"
       }
@@ -23,7 +23,6 @@ const reservar = async (body) => {
          return {
             tipoAlerta: "danger", mensaje: 'Error al procesar la solicitud', adicional: error.message
          }
-
       }
       throw error;
    }

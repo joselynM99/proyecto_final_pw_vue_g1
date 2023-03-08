@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import {listaClientesApellido, borrarClientePorIdFachada} from "@/js/gestorEmpleado";
+import {listaClientesApellido, borrarClientePorIdFachada} from "@/js/api_reservas/ProcesarEmpleado";
 export default {
 
   data(){

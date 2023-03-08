@@ -50,7 +50,7 @@
 import {
   actualizarClienteFachada,
   buscarClientePorIdFachada,
-} from "@/js/gestorEmpleado.js";
+} from "@/js/api_reservas/ProcesarEmpleado";
 export default {
   data() {
     return {
