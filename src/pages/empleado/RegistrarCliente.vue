@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { registrarClienteFachada } from '@/js/ProcesarCliente'
+import { registrarClienteFachada } from '@/js/ProcesarEmpleado'
 
 
 export default {
