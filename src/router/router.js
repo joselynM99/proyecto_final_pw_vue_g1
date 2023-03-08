@@ -47,6 +47,16 @@ const routes = [
     component: () => import(/* webpackChunkName: "BuscarVehiculo" */ '../pages/empleado/BuscarVehiculo.vue')
   },
   {
+    path: '/empleado/vehiculo/visualizar-vehiculo/:id',
+    name: 'visualizar-vehiculo',
+    component: () => import(/* webpackChunkName: "VisualizarVehiculo" */ '../pages/empleado/VisualizarVehiculo.vue')
+  },
+  {
+    path: '/empleado/vehiculo/actualizar-vehiculo/:id',
+    name: 'actualizar-vehiculo',
+    component: () => import(/* webpackChunkName: "ActualizarVehiculo" */ '../pages/empleado/ActualizarVehiculo.vue')
+  },
+  {
     path: '/empleado/retirar-vehiculo-reservado',
     name: 'retirar-vehiculo-reservado',
     component: () => import(/* webpackChunkName: "RetirarunVehiculoReservado" */ '../pages/empleado/RetirarunVehiculoReservado.vue')
