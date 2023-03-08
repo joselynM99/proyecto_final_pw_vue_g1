@@ -81,6 +81,19 @@ const routes = [
     name: 'vehiculos-vip',
     component: () => import(/* webpackChunkName: "ReporteVehiculosVIP" */ '../pages/reportes/ReporteVehiculosVIP.vue')
   },
+  
+  {
+    path:'/empleados/clientes/actualizar-cliente/:id',
+    name:'actualizar-cliente',
+    component:()=> import(/* webpackChunkName: "ActualizarCliente" */ '../pages/empleado/ActualizarCliente.vue')
+  },
+
+  {
+    path:'/empleados/clientes/visualizar-cliente/:id',
+    name:'visualizar-cliente',
+    component:()=> import(/* webpackChunkName: "VisualizarCliente" */ '../pages/empleado/VisualizarCliente.vue')
+
+  },
 ]
 
 const router = createRouter({

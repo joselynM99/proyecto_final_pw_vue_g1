@@ -38,7 +38,9 @@
     <Mensaje v-if="msg" :tipoAlerta="msg.tipoAlerta" :mensaje="msg.mensaje" :mensajeAdicional="msg.adicional">
     </Mensaje>
   </div>
+
 </template>
+
 <script>
 import Mensaje from "@/components/Mensaje.vue";
 import { reservarFachada } from "@/js/api_reservas/ProcesarReserva";
