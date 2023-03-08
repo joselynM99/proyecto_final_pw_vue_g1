@@ -24,7 +24,7 @@
     </div>
     <div class="input-group mb-3">
       <span class="input-group-text">Registro:</span>
-      <input type="text" class="form-control" v-model="cliente.tipoRegistro" />
+      <input type="text" class="form-control" v-model="cliente.tipoRegistro" disabled readonly />
     </div>
     <div class="input-group mb-3">
       <span class="input-group-text">Fecha de Nacimiento:</span>
