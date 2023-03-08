@@ -35,7 +35,7 @@
         <span class="input-group-text">Valor por día:</span>
         <input type="text" class="form-control" v-model="valorDia" required/>
       </div>
-      <button type="button" class="btn btn-outline-info" @click="registrar">
+      <button type="button" class="btn btn-outline-success" @click="registrar">
         INGRESAR VEHÍCULO
       </button>
       <br />

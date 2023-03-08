@@ -1,5 +1,5 @@
 <template>
-  <h1>Reporte de Vehículos VIP</h1>
+  
   <fieldset>
     <legend>Reporte de Vehículos VIP</legend>
 
@@ -9,7 +9,7 @@
       <p>Se tomara en cuenta solo el mes y el año</p>
     </div>
     <div>
-      <button type="button" class="btn btn-outline-info" @click="consultar">
+      <button type="button" class="btn btn-outline-success" @click="consultar">
         BUSCAR
       </button>
     </div>
