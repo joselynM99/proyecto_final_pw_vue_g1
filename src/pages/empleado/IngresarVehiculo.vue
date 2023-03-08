@@ -48,7 +48,7 @@
 
 <script>
 
-import {registrarVehiculoFachada} from"@/js/procesarVehiculo"
+import {registrarVehiculoFachada} from"@/js/api_reservas/ProcesarVehiculo"
 export default {
 data(){
   return{

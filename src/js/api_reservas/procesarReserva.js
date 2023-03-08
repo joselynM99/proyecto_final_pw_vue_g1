@@ -1,4 +1,3 @@
-import MensajeVue from "@/components/Mensaje.vue";
 import axios from "axios";
 
 export const reservarFachada = async (body) => {
