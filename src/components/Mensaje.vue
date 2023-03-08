@@ -1,6 +1,8 @@
 <template>
   <div :class="'alert alert-' + tipoAlerta">
-    <strong>{{ mensaje }} </strong>{{ mensajeAdicional }}
+    <strong>{{ mensaje }} </strong>
+    <br v-if="mensajeAdicional">
+    {{ mensajeAdicional }} 
   </div>
 </template>
 <script>

@@ -9,19 +9,22 @@ const reservar = async (body) => {
    try {
       const response = await axios.post(`http://localhost:8081/API/Reservas/V1/reservas`, body);
       return {
-         tipoAlerta: "success", mensaje: `El numero de su reserva es: ${response.data.numeroReserva} `, adicional: "Se registro de manera exitosa la reserva"
+         tipoAlerta: "success", mensaje: `Numero de Reserva: ${response.data.numeroReserva} `, adicional: "Se registro de manera exitosa la reserva"
       }
-
    } catch (error) {
       if (error.response) {
-         console.log(`Error en la solicitud POST: ${error.response.status}`);
          return {
-            tipoAlerta: "danger", mensaje: "No se pudo ingreso la reserva", adicional: error.response.status
+            tipoAlerta: "danger", mensaje: "No se pudo ingreso la reserva", adicional:`Codigo ${error.response.status}`
          }
       } else if (error.request) {
-         console.log('No se recibió respuesta del servidor');
+         return {
+            tipoAlerta: "danger", mensaje: 'No se recibió respuesta del servidor'
+         }
       } else {
-         console.log(`Error al procesar la solicitud: ${error.message}`);
+         return {
+            tipoAlerta: "danger", mensaje: 'Error al procesar la solicitud', adicional: error.message
+         }
+
       }
       throw error;
    }

@@ -24,7 +24,7 @@
 
     <div v-if="tipoAlerta == 'success'">
       <div class="form-floating mb-3">
-        <input v-model="valorTotal" class="form-control" type="text" placeholder="total" />
+        <input v-model="valorTotal" class="form-control" type="text" placeholder="total" disabled />
         <label>Valor Total $: </label>
       </div>
       <div class="form-floating mb-3">
@@ -34,9 +34,9 @@
       <button class="btn btn-primary" type="submit" v-on:click="reservar">
         Reservar
       </button>
-      <Mensaje v-if="msg" :tipoAlerta="msg.tipoAlerta" :mensaje="msg.mensaje" :mensajeAdicional="msg.adicional">
-      </Mensaje>
     </div>
+    <Mensaje v-if="msg" :tipoAlerta="msg.tipoAlerta" :mensaje="msg.mensaje" :mensajeAdicional="msg.adicional">
+    </Mensaje>
   </div>
 </template>
 <script>
@@ -67,8 +67,10 @@ export default {
         tarjeta: this.tarjeta,
       };
       this.msg = await reservarFachada(body);
+      this.limpiarCampos()
     },
     async revisarDisponibilidad() {
+      this.msg = null
       const data = await revisarDisponibilidadFachada(
         this.placa,
         this.fechaInicio,
@@ -86,6 +88,15 @@ export default {
         this.mensaje = "Vehiculo NO disponible!! ";
       }
     },
+    limpiarCampos() {
+      this.placa = null
+      this.cedula = null
+      this.fechaInicio = null
+      this.fechaFinal = null
+      this.tipoAlerta = null
+      this.mensaje = null
+      this.tarjeta = null
+    }
   },
   components: { Mensaje },
 };
