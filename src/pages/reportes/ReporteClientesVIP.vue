@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { reporteClientesVIPFachada } from '@/js/ProcesarReportes';
+import { reporteClientesVIPFachada } from '@/js/api_reservas/ProcesarReportes';
 export default {
   data() {
     return {
@@ -58,6 +58,4 @@ h1 {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   margin-top: 15px;
 }
-
-
 </style>

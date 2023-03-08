@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import { actualizarClienteFachada, buscarClienteFachada } from '@/js/ProcesarCliente'
+import { actualizarClienteFachada, buscarClienteFachada } from '@/js/api_reservas/ProcesarCliente'
 
 
 export default {

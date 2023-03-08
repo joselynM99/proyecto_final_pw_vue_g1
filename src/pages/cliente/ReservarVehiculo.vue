@@ -41,8 +41,8 @@
 </template>
 <script>
 import Mensaje from "@/components/Mensaje.vue";
-import { reservarFachada } from "@/js/api_reservas/procesarReserva";
-import { revisarDisponibilidadFachada } from "@/js/api_reservas/procesarVehiculo";
+import { reservarFachada } from "@/js/api_reservas/ProcesarReserva";
+import { revisarDisponibilidadFachada } from "@/js/api_reservas/ProcesarVehiculo";
 export default {
   data() {
     return {

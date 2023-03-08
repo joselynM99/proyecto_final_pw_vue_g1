@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { crearReporteVehiculosFachada } from '@/js/api_reservas/procesarReportes';
+import { crearReporteVehiculosFachada } from '@/js/api_reservas/ProcesarReportes';
 
 export default {
   data() {

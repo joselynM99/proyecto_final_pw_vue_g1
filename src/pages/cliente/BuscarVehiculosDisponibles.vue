@@ -1,12 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <h1>Buscar vehículos disponibles</h1>
-
-  <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-            <label for="floatingTextarea">Comments</label>
-        </div>
-=======
   <div>
     <h1>Buscar Vehiculos disponibles:</h1>
     <div class="encabezado">
@@ -47,14 +39,13 @@
       </table>
     </div>
   </div>
->>>>>>> 4989060ed11ec2b43ffbea188879a5b8fa7fce28
 </template>
 <script>
 import {
   buscarVehiculoPorMarcaModeloFachada,
   obtenerTodasMarcasFachada,
   obtenerTodosModelosFachada,
-} from "@/js/api_reservas/procesarVehiculo";
+} from "@/js/api_reservas/ProcesarVehiculo";
 
 export default {
   data() {
