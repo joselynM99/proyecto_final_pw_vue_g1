@@ -1,5 +1,5 @@
 <template>
-  <h1>Registrarse como cliente</h1>
+  <h1>Registrar cliente</h1>
   <form>
     <div id="cont1">
       <div v-if="registroExitoso" class="alert alert-success" role="alert">
