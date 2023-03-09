@@ -29,11 +29,11 @@
       </div>
       <div class="input-group mb-3">
         <span class="input-group-text">Precio Vehículo:</span>
-        <input type="text" class="form-control" v-model="precioVehiculo" required/>
+        <input type="number" placeholder="00,00" class="form-control" v-model="precioVehiculo" required/>
       </div>
       <div class="input-group mb-3">
         <span class="input-group-text">Valor por día:</span>
-        <input type="text" class="form-control" v-model="valorDia" required/>
+        <input type="number" placeholder="00,00" class="form-control" v-model="valorDia" required/>
       </div>
       <button type="button" class="btn btn-outline-success" @click="registrar">
         INGRESAR VEHÍCULO

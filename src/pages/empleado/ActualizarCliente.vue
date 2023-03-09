@@ -20,7 +20,14 @@
     </div>
     <div class="input-group mb-3">
       <span class="input-group-text">Genero:</span>
-      <input type="text" class="form-control" v-model="cliente.genero" />
+
+      <select class="form-select" required="" aria-label="Default select example" v-model="cliente.genero">
+          <option value="Femenino">Femenino</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Otro">Otro</option>
+        </select>
+
+
     </div>
     <div class="input-group mb-3">
       <span class="input-group-text">Registro:</span>

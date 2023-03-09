@@ -2,7 +2,7 @@
   <h1>Reporte de Clientes VIP</h1>
 
   <div id="cont1">
-    <table class="table table-danger table-striped">
+    <table class="table table-striped table-bordered">
       <thead>
         <tr>
           <th>Nombre</th>

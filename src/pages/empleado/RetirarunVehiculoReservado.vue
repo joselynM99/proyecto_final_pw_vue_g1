@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-5">
-    <h1>Retirarun vehículo reservado</h1>
+    <h1>Retirar vehículo reservado</h1>
     <div class="form-floating mb-3">
       <input type="text" name="reserva" id="reserva" class="form-control" v-model="numeroReserva">
       <label for="reserva">Número de reserva:</label>

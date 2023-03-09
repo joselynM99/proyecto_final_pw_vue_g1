@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-5">
-    <h1>Retirarun vehículo sin reserva</h1>
+    <h1>Retirar vehículo sin reserva</h1>
     <hr>
     <BuscarVehiculosDisponibles class="my-5"/>
     <hr>

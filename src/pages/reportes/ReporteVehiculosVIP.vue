@@ -6,7 +6,7 @@
     <div>
       <span class="input-group-text" id="inicio">Fecha inicio:</span>
       <input type="date" class="form-control" v-model="inicio" />
-      <p>Se tomara en cuenta solo el mes y el año</p>
+      <p>Se tomará en cuenta solo el mes y el año</p>
     </div>
     <div>
       <button type="button" class="btn btn-outline-success" @click="consultar">

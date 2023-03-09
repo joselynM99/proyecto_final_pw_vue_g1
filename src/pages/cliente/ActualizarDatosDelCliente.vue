@@ -4,6 +4,10 @@
     <div v-if="clienteNoEncontrado" class="alert alert-warning" role="alert">
       No se ha encontrado cliente con cedula: {{ this.cedula }}
     </div>
+
+    <div v-if="error" class="alert alert-success" role="alert">
+        Ha ocurrido un error al actualizar los datos
+      </div>
     <div class="form-floating">
       <input class="form-control" placeholder="Cedula de Cliente" v-model="cedula">
       <label for="">Cedula de Cliente</label>
@@ -42,7 +46,7 @@
       </div>
 
       <div class="form-floating">
-        <input class="form-control"  v-model="tipoRegistro" id="tipoR" disabled readonly>
+        <input class="form-control" v-model="tipoRegistro" id="tipoR" disabled readonly>
         <label id="lab" for="tipoR">Tipo de registro</label>
       </div>
 
@@ -70,11 +74,12 @@ export default {
       tipoRegistro: null,
       registroExitoso: false,
       clienteNoEncontrado: false,
+      error:false
     }
   },
 
   methods: {
-    actualizarCliente() {
+   async actualizarCliente() {
 
       if (this.nombre !== null && this.apellido !== null && this.cedula !== null && this.genero !== null && this.fechaNacimiento !== null) {
         const cliente = {
@@ -87,16 +92,23 @@ export default {
           tipoRegistro: this.tipoRegistro,
         }
 
-        actualizarClienteFachada(this.id, cliente)
+        const a =await actualizarClienteFachada(this.id, cliente)
 
-        this.id = null
-        this.nombre = null
-        this.apellido = null
-        this.cedula = null
-        this.genero = null
-        this.fechaNacimiento = null
-        this.tipoRegistro = null
-        this.registroExitoso = true
+        if (a) {
+          this.id = null
+          this.nombre = null
+          this.apellido = null
+          this.cedula = null
+          this.genero = null
+          this.fechaNacimiento = null
+          this.tipoRegistro = null
+          this.registroExitoso = true
+          this.error = false
+        } else {
+          this.registroExitoso = false
+          this.error = true
+        }
+
       }
     },
 
@@ -108,7 +120,7 @@ export default {
       const { id, nombre, apellido, cedula, genero, fechaNacimiento, tipoRegistro } = data
       console.log(data);
 
-      if (data == null || typeof id==='undefined') {
+      if (data == null || typeof id === 'undefined') {
         this.clienteNoEncontrado = true
       } else {
         this.id = id
@@ -118,7 +130,7 @@ export default {
         this.genero = genero
         this.fechaNacimiento = fechaNacimiento
         this.tipoRegistro = tipoRegistro
-        this.clienteNoEncontrado=false
+        this.clienteNoEncontrado = false
       }
 
 

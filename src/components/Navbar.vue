@@ -30,19 +30,19 @@
             <router-link class="dropdown-item" to="/empleado/registrar-cliente">Registrar cliente</router-link>
           </li>
           <li>
-            <router-link class="dropdown-item" to="/empleado/cliente">Cliente</router-link>
+            <router-link class="dropdown-item" to="/empleado/cliente">Operaciones con Clientes</router-link>
           </li>
           <li>
             <router-link class="dropdown-item" to="/empleado/ingresar-vehiculo">Ingresar un vehículo</router-link>
           </li>
           <li>
-            <router-link class="dropdown-item" to="/empleado/vehiculo">Vehículo</router-link>
+            <router-link class="dropdown-item" to="/empleado/vehiculo">Operaciones con Vehículos</router-link>
           </li>
           <li>
-            <router-link class="dropdown-item" to="/empleado/retirar-vehiculo-reservado">Retirarun vehículo reservado</router-link>
+            <router-link class="dropdown-item" to="/empleado/retirar-vehiculo-reservado">Retirar vehículo reservado</router-link>
           </li>
           <li>
-            <router-link class="dropdown-item" to="/empleado/retirar-vehiculo-sin-reserva">Retirarun vehículo sin reserva</router-link>
+            <router-link class="dropdown-item" to="/empleado/retirar-vehiculo-sin-reserva">Retirar vehículo sin reserva</router-link>
           </li>
         </ul>
       </div>
