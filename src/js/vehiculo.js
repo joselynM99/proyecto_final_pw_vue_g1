@@ -30,13 +30,13 @@ export const borrarVehiculoPorId = async (id) => {
 }
 
 export const buscarVehiculoPorNumeroDeReserva = async (numero) => {
-    return await axios.get(`http://localhost:8081/API/Reservas/V1/vehiculos/reserva/${numero}`).then(r => r.data).catch((error) => {
+    return await axios.get(`http://localhost:8081/API/Reservas/V1/vehiculos/numero/${numero}`).then(r => r.data).catch((error) => {
         console.log(error);
     })
 }
 
 export const actualizarEstadoVehiculo = async (numero) => {
-    axios.post(`http://localhost:8081/API/Reservas/V1/vehiculos/estado/reserva/${numero}`).then(r => r.data).catch((error) => {
+    axios.post(`http://localhost:8081/API/Reservas/V1/vehiculos/estado/numero/${numero}`).then(r => r.data).catch((error) => {
         console.log(error);
     })
 }

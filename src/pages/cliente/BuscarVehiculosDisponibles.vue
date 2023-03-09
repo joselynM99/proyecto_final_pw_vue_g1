@@ -33,7 +33,7 @@
             <td>Marca: {{ item.marca }}</td>
             <td>Año: {{ item.anioFabricacion }}</td>
             <td>Estado: {{ item.estado }}</td>
-            <td>Valor por día: {{ item.valor }}</td>
+            <td>Valor por día: {{ item.valorPorDia }}</td>
           </tr>
         </tbody>
       </table>

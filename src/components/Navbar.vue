@@ -39,7 +39,7 @@
             <router-link class="dropdown-item" to="/empleado/vehiculo">Vehículo</router-link>
           </li>
           <li>
-            <router-link class="dropdown-item" to="/empleado/retirar-vehiculo-reservado">Retirarun vehículoreservado</router-link>
+            <router-link class="dropdown-item" to="/empleado/retirar-vehiculo-reservado">Retirarun vehículo reservado</router-link>
           </li>
           <li>
             <router-link class="dropdown-item" to="/empleado/retirar-vehiculo-sin-reserva">Retirarun vehículo sin reserva</router-link>
