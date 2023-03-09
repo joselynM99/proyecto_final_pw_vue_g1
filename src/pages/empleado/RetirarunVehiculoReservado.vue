@@ -27,7 +27,7 @@
             <td>{{ vehiculo.modelo }}</td>
             <td>{{ vehiculo.estado }}</td>
             <td>{{ `${vehiculo.fechaInicio} - ${vehiculo.fechaFinal}` }}</td>
-            <td>{{  }}</td>
+            <td>{{ vehiculo.cedula }}</td>
             <td>
               <button class="btn btn-primary" @click="registrarRetiro">Retirar</button>
             </td>
@@ -51,6 +51,7 @@ export default {
         estado: '',
         fechaInicio: '',
         fechaFinal: '',
+        cedula: '',
       }
     }
   },

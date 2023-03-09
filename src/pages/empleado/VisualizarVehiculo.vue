@@ -1,6 +1,6 @@
 <template>
-  <div class="mt-5">
-    <div class="grid-container bg-light">
+  <div class="container mt-5">
+    <div class="grid-container">
       <div class="text-start fw-bold">Id:</div>
       <div class="text-start">{{ vehiculo.id }}</div>
       <div class="text-start fw-bold">Placa:</div>
@@ -51,4 +51,14 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: 20em 20em;
+  background: #ecf0f1;
+  width: 40em;
+  margin: auto;
+  padding: 30px;
+  border-radius: 15px;
+}
+</style>

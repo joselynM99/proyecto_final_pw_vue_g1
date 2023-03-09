@@ -4,6 +4,14 @@ export const reservarFachada = async (body) => {
    return await reservar(body)
 }
 
+export const buscarReservaPorIdFachada = async (id) => {
+   return await buscarReservaPorId(id)
+}
+
+export const actualizarReservaFachada = async (reserva) => {
+   await actualizarReserva(reserva)
+}
+
 const reservar = async (body) => {
    try {
       const response = await axios.post(`http://localhost:8081/API/Reservas/V1/clientes/reservas`, body);
@@ -26,6 +34,20 @@ const reservar = async (body) => {
       }
       throw error;
    }
+}
+
+const buscarReservaPorId = async (id) => {
+   return await axios.get(`http://localhost:8081/API/Reservas/V1/reservas/${id}`).then(r => r.data).catch((error) => {
+      console.log(error)
+   })
+}
+
+const actualizarReserva = async (reserva) => {
+   axios.post(`http://localhost:8081/API/Reservas/V1/reservas`, reserva).then(r => {
+      console.log(r.data)
+  }).catch((error) => {
+      console.log(error)
+  })
 }
 
 

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { buscarReservaPorIdFachada, actualizarReservaFachada } from '@/js/api_reservas/ProcesarReserva'
 
 export const buscarVehiculosPorMarca = async (marca) => {
     return await axios.get(`http://localhost:8081/API/Reservas/V1/vehiculos/marca/${marca}`).then(r => r.data).catch((error) => {
@@ -37,9 +38,14 @@ export const buscarVehiculoPorNumeroDeReserva = async (numero) => {
 export const actualizarEstadoVehiculo = async (numero) => {
     buscarVehiculoPorNumeroDeReserva(numero).then(r => {
         const vehiculo = buscarVehiculoPorId(r.vehiculoId)
+        const reserva = buscarReservaPorIdFachada(r.reservaId)
         vehiculo.then(r => {
             r.estado = 'N'
             actualizarVehiculo(r)
+        })
+        reserva.then(r => {
+            r.estado = 'E'
+            actualizarReservaFachada(r)
         })
     })
 }
