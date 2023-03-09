@@ -20,7 +20,7 @@
     <button class="btn btn-primary" type="submit" v-on:click="revisarDisponibilidad">
       Buscar
     </button>
-    <Mensaje :tipoAlerta="tipoAlerta" :mensaje="mensaje"> </Mensaje>
+    <Mensaje :tipoAlerta="tipoAlerta" :mensaje="mensaje" :mensajeAdicional="mAdicional"> </Mensaje>
 
     <div v-if="tipoAlerta == 'success'">
       <div class="form-floating mb-3">
@@ -38,7 +38,6 @@
     <Mensaje v-if="msg" :tipoAlerta="msg.tipoAlerta" :mensaje="msg.mensaje" :mensajeAdicional="msg.adicional">
     </Mensaje>
   </div>
-
 </template>
 
 <script>
@@ -55,6 +54,7 @@ export default {
       valorTotal: null,
       tipoAlerta: null,
       mensaje: null,
+      mAdicional: null,
       msg: null,
       tarjeta: null,
     };
@@ -78,16 +78,23 @@ export default {
         this.fechaInicio,
         this.fechaFinal
       );
-      this.mostrarMensaje(data.estado);
+      this.mostrarMensaje(data);
+      console.log(data);
       this.valorTotal = data.valorTotalPagar;
     },
-    mostrarMensaje(tmp) {
-      if (tmp == "D") {
+    mostrarMensaje(data) {
+      if (data.estado == "D") {
         this.tipoAlerta = "success";
         this.mensaje = "Vehiculo disponible!! ";
-      } else {
+        this.mAdicional = null
+      } else if (data.estado == "ND" && data.fechaDisponible != null) {
         this.tipoAlerta = "danger";
         this.mensaje = "Vehiculo NO disponible!! ";
+        this.mAdicional = `El vehiculo estara disponible desde el: ${data.fechaDisponible}`
+      } else {
+        this.tipoAlerta = "danger";
+        this.mensaje = "Placa del vehiculo no existe!! ";
+        this.mAdicional = null;
       }
     },
     limpiarCampos() {
