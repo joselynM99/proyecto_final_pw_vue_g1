@@ -9,6 +9,7 @@
       <i class="bi bi-search"></i>
       Buscar
     </button>
+    <Mensaje class="my-3" v-if="msg" :tipoAlerta="msg.tipoAlerta" :mensaje="msg.mensaje" :mensajeAdicional="msg.adicional"/>
     <div v-if="vehiculo.numero != ''">
       <table class="table mt-5">
         <thead class="table-dark">
@@ -52,16 +53,30 @@ export default {
         fechaInicio: '',
         fechaFinal: '',
         cedula: '',
-      }
+      },
+      msg: null,
     }
   },
   methods: {
     buscarVehiculo() {
-      buscarVehiculoPorNumeroDeReserva(this.numeroReserva).then(r => this.vehiculo = r)
+      try {
+        buscarVehiculoPorNumeroDeReserva(this.numeroReserva).then(r => this.vehiculo = r)
+      } catch(err) {
+        this.msg = {
+          tipoAlerta: 'info',
+          mensaje: 'Vehículo no encontrado',
+          adicional: `No se encontré ningún vehículo con el numero de reserva ${this.numeroReserva}`,
+        }
+      }
     },
     registrarRetiro() {
       actualizarEstadoVehiculo(this.numeroReserva)
       this.vehiculo.estado = 'ND'
+      this.msg = {
+        tipoAlerta: 'info',
+        mensaje: 'Se actualizo el estado de del vehículo',
+        adicional: 'Se actualizo el estado de del vehículo ',
+      }
     }
   }
 }

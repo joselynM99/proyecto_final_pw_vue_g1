@@ -9,6 +9,7 @@
       <i class="bi bi-search"></i>
       Buscar
     </button>
+    <Mensaje class="my-3" v-if="msg" :tipoAlerta="msg.tipoAlerta" :mensaje="msg.mensaje" :mensajeAdicional="msg.adicional"/>
     <div v-if="listaDeVehiculos.length != 0">
       <table class="table mt-5">
         <thead class="table-dark">
@@ -16,7 +17,7 @@
             <th scope="col">#</th>
             <th scope="col">Marca</th>
             <th scope="col">Modelo</th>
-            <th scope="col">Valor por dia</th>
+            <th scope="col">Placa</th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -25,7 +26,7 @@
             <th scope="row">{{ index + 1 }}</th>
             <td>{{ vehiculo.marca }}</td>
             <td>{{ vehiculo.modelo }}</td>
-            <td>{{ vehiculo.valorPorDia }}</td>
+            <td>{{ vehiculo.placa }}</td>
             <td>
               <router-link :to="{ name: 'visualizar-vehiculo', params: { id: vehiculo.id } }">
                 <button class="btn btn-primary me-3">
@@ -52,20 +53,38 @@
 </template>
 
 <script>
+import Mensaje from "@/components/Mensaje.vue"
 import { buscarVehiculosPorMarca, borrarVehiculoPorId } from "@/js/vehiculo.js"
 export default {
   data() {
     return {
       listaDeVehiculos: [],
       marca: '',
+      msg: null,
     }
+  },
+  components: {
+    Mensaje 
   },
   methods: {
     async buscarVehiculo() {
-      this.listaDeVehiculos = await buscarVehiculosPorMarca(this.marca)
+      try {
+        this.listaDeVehiculos = await buscarVehiculosPorMarca(this.marca)
+      } catch(err) {
+        this.msg = {
+          tipoAlerta: 'info',
+          mensaje: 'Vehículo no encontrado',
+          adicional: `No se encontré ningún vehículo de la marca ${this.marca}`,
+        }
+      }
     },
     async borrar(id) {
       borrarVehiculoPorId(id)
+      this.msg = {
+        tipoAlerta: 'danger',
+        mensaje: 'Vehículo eliminado',
+        adicional: 'Actualice la pagina por favor',
+      }
     }
   }
 }
