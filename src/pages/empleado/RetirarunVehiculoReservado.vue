@@ -26,7 +26,7 @@
             <th>{{ vehiculo.placa }}</th>
             <td>{{ vehiculo.modelo }}</td>
             <td>{{ vehiculo.estado }}</td>
-            <td>{{ `${vehiculo.fechaInicio} - ${vehiculo.fechaFinal}` }}</td>
+            <td>{{ `${vehiculo.fechaInicio.substring(0, 10)} - ${vehiculo.fechaFinal.substring(0, 10)}` }}</td>
             <td>{{ vehiculo.cedula }}</td>
             <td>
               <button class="btn btn-primary" @click="registrarRetiro">Retirar</button>
@@ -61,7 +61,7 @@ export default {
     },
     registrarRetiro() {
       actualizarEstadoVehiculo(this.numeroReserva)
-      this.vehiculo.estado = 'N'
+      this.vehiculo.estado = 'ND'
     }
   }
 }
