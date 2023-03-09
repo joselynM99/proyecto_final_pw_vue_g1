@@ -1,47 +1,47 @@
 <template>
-  <div class="container">
-    <div>
+  <div class="container mt-5">
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" v-model="vehiculo.id">
       <label for="">Id:</label>
-      <input type="text" v-model="vehiculo.id">
     </div>
-    <div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" v-model="vehiculo.placa">
       <label for="">Placa:</label>
-      <input type="text" v-model="vehiculo.placa">
     </div>
-    <div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" v-model="vehiculo.modelo">
       <label for="">Modelo:</label>
-      <input type="text" v-model="vehiculo.modelo">
     </div>
-    <div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" v-model="vehiculo.marca">
       <label for="">Marca:</label>
-      <input type="text" v-model="vehiculo.marca">
     </div>
-    <div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" v-model="vehiculo.anioFabricacion">
       <label for="">Año de fabricación:</label>
-      <input type="text" v-model="vehiculo.anioFabricacion">
     </div>
-    <div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" v-model="vehiculo.pais">
       <label for="">Pais:</label>
-      <input type="text" v-model="vehiculo.pais">
     </div>
-    <div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" v-model="vehiculo.cilindraje">
       <label for="">Cilindraje:</label>
-      <input type="text" v-model="vehiculo.cilindraje">
     </div>
-    <div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" v-model="vehiculo.avaluo">
       <label for="">Avaluo:</label>
-      <input type="text" v-model="vehiculo.avaluo">
     </div>
-    <div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" v-model="vehiculo.valorPorDia">
       <label for="">Valor por dia:</label>
-      <input type="text" v-model="vehiculo.valorPorDia">
     </div>
-    <div>
+    <div class="form-floating mb-5">
+      <input type="text" class="form-control" v-model="vehiculo.estado">
       <label for="">Estado:</label>
-      <input type="text" v-model="vehiculo.estado">
     </div>
     <router-link to="/empleado/vehiculo">
-      <button @click="actualizar">Actualizar</button>
+      <button class="btn btn-warning mb-5" @click="actualizar">Actualizar</button>
     </router-link>
   </div>
 </template>

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { buscarReservaPorIdFachada, actualizarReservaFachada } from '@/js/api_reservas/ProcesarReserva'
 
 export const buscarVehiculosPorMarca = async (marca) => {
     return await axios.get(`http://localhost:8081/API/Reservas/V1/vehiculos/marca/${marca}`).then(r => r.data).catch((error) => {
@@ -29,17 +30,13 @@ export const borrarVehiculoPorId = async (id) => {
 }
 
 export const buscarVehiculoPorNumeroDeReserva = async (numero) => {
-    return await axios.get(`http://localhost:8081/API/Reservas/V1/vehiculos/numero/${numero}`).then(r => r.data).catch((error) => {
+    return await axios.get(`http://localhost:8081/API/Reservas/V1/vehiculos/reserva/${numero}`).then(r => r.data).catch((error) => {
         console.log(error);
     })
 }
 
 export const actualizarEstadoVehiculo = async (numero) => {
-    buscarVehiculoPorNumeroDeReserva(numero).then(r => {
-        const vehiculo = buscarVehiculoPorId(r.vehiculoId)
-        vehiculo.then(r => {
-            r.estado = 'N'
-            actualizarVehiculo(r)
-        })
+    axios.post(`http://localhost:8081/API/Reservas/V1/vehiculos/estado/reserva/${numero}`).then(r => r.data).catch((error) => {
+        console.log(error);
     })
 }

@@ -1,31 +1,40 @@
 <template>
-  <h1>Retirarun vehículo reservado</h1>
-  <div class="container">
-    <label for="reserva">Número de reserva:</label>
-    <input type="text" name="reserva" id="reserva" v-model="numeroReserva">
-    <button @click="buscarVehiculo">Buscar</button>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Placa</th>
-          <th scope="col">Modelo</th>
-          <th scope="col">Estado</th>
-          <th scope="col">Fecha</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>{{ vehiculo.placa }}</th>
-          <td>{{ vehiculo.modelo }}</td>
-          <td>{{ vehiculo.estado }}</td>
-          <td>{{ `${vehiculo.fechaInicio} - ${vehiculo.fechaFinal}` }}</td>
-          <td>
-            <button @click="registrarRetiro">Retirar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="container mt-5">
+    <h1>Retirarun vehículo reservado</h1>
+    <div class="form-floating mb-3">
+      <input type="text" name="reserva" id="reserva" class="form-control" v-model="numeroReserva">
+      <label for="reserva">Número de reserva:</label>
+    </div>
+    <button class="btn btn-primary" @click="buscarVehiculo">
+      <i class="bi bi-search"></i>
+      Buscar
+    </button>
+    <div v-if="vehiculo.numero != ''">
+      <table class="table mt-5">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Placa</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Reservado por</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>{{ vehiculo.placa }}</th>
+            <td>{{ vehiculo.modelo }}</td>
+            <td>{{ vehiculo.estado }}</td>
+            <td>{{ `${vehiculo.fechaInicio.substring(0, 10)} - ${vehiculo.fechaFinal.substring(0, 10)}` }}</td>
+            <td>{{ vehiculo.cedula }}</td>
+            <td>
+              <button class="btn btn-primary" @click="registrarRetiro">Retirar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
   
@@ -42,6 +51,7 @@ export default {
         estado: '',
         fechaInicio: '',
         fechaFinal: '',
+        cedula: '',
       }
     }
   },
@@ -51,7 +61,7 @@ export default {
     },
     registrarRetiro() {
       actualizarEstadoVehiculo(this.numeroReserva)
-      this.vehiculo.estado = 'N'
+      this.vehiculo.estado = 'ND'
     }
   }
 }
