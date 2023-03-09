@@ -1,8 +1,8 @@
 <template>
   <div class="container mt-5">
     <div class="form-floating mb-3">
-      <input type="text" class="form-control" v-model="vehiculo.id">
-      <label for="">Id:</label>
+      <input type="text" class="form-control" v-model="vehiculo.id" hidden>
+    
     </div>
     <div class="form-floating mb-3">
       <input type="text" class="form-control" v-model="vehiculo.placa">
