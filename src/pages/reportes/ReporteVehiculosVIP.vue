@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import { listaVehiculosVip } from "@/js/reportes";
+import { listaVehiculosVip } from "@/js/api_reservas/ProcesarReportes";
 export default {
   data() {
     return {
