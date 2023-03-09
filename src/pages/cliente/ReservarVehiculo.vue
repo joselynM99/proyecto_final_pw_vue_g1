@@ -69,7 +69,7 @@ export default {
         tarjeta: this.tarjeta,
       };
       this.msg = await reservarFachada(body);
-      //this.limpiarCampos()
+      this.limpiarCampos()
     },
     async revisarDisponibilidad() {
       this.msg = null
