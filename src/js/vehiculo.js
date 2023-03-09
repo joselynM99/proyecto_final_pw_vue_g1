@@ -14,7 +14,7 @@ export const buscarVehiculoPorId = async (id) => {
 }
 
 export const actualizarVehiculo = async (vehiculo) => {
-    axios.post(`http://localhost:8081/API/Reservas/V1/empleados/vehiculos`, vehiculo).then(r => {
+    axios.put(`http://localhost:8081/API/Reservas/V1/empleados/vehiculos`, vehiculo).then(r => {
         console.log(r.data)
     }).catch((error) => {
         console.log(error)
